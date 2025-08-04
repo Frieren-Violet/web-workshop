@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png" />
+    <title>关于我</title>
+    <style>
+      body {
+        height: auto;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      #about-me-main-frame {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .hero-section {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px 20px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .hero-section h1 {
+        font-size: 3em;
+        margin: 0;
+        color: #4a5568;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .subtitle {
+        font-size: 1.3em;
+        color: #718096;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      .content-container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      section {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+      }
+
+      h2 {
+        color: #2d3748;
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        color: #4a5568;
+        font-size: 1.4em;
+        margin-bottom: 15px;
+      }
+
+      blockquote {
+        background: #f7fafc;
+        border-left: 5px solid #667eea;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 5px;
+        font-style: italic;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .interests-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 20px;
+      }
+
+      .interest-card {
+        background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 
+          0 4px 15px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .interest-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 
+          0 8px 25px rgba(0, 0, 0, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      }
+
+      .interest-card h3 {
+        margin-top: 0;
+        color: #2d3748;
+        font-size: 1.3em;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      li {
+        background: rgba(102, 126, 234, 0.1);
+        margin: 8px 0;
+        padding: 10px 15px;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+        transition: background-color 0.3s ease;
+      }
+
+      li:hover {
+        background: rgba(102, 126, 234, 0.2);
+      }
+
+      .facts-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .facts-table tr {
+        transition: background-color 0.3s ease;
+      }
+
+      .facts-table tr:nth-child(even) {
+        background: #f8f9fa;
+      }
+
+      .facts-table tr:hover {
+        background: rgba(102, 126, 234, 0.1);
+      }
+
+      .facts-table td {
+        padding: 15px 20px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .facts-table td:first-child {
+        font-weight: bold;
+        color: #4a5568;
+        background: rgba(102, 126, 234, 0.05);
+        width: 40%;
+      }
+
+      .contact-section {
+        text-align: center;
+        background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .contact-info p {
+        background: rgba(102, 126, 234, 0.1);
+        padding: 15px 25px;
+        border-radius: 25px;
+        margin: 10px;
+        font-weight: 500;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      strong {
+        color: #2d3748;
+      }
+
+      em {
+        color: #667eea;
+      }
+
+      @media (max-width: 768px) {
+        .hero-section h1 {
+          font-size: 2.2em;
+        }
+        
+        .interests-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .contact-info {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        #about-me-main-frame {
+          padding: 10px;
+        }
+        
+        section {
+          padding: 20px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div id="about-me-main-frame">
+      <header class="hero-section">
+        <h1>关于我</h1>
+        <p class="subtitle">一个充满好奇心的程序员</p>
+      </header>
+      
+      <main class="content-container">
+        <section class="intro-section">
+          <h2>个人简介</h2>
+          <p>大家好！我是<strong>Claude</strong>，一个对技术充满热情的AI助手。我喜欢帮助人们解决各种编程问题，从简单的HTML网页到复杂的软件架构设计。</p>
+          <blockquote>
+            <em>"代码是思想的具象化，而调试是艺术的精进。"</em>
+          </blockquote>
+        </section>
+
+        <section class="interests-section">
+          <h2>我的兴趣爱好</h2>
+          <div class="interests-grid">
+            <div class="interest-card">
+              <h3>💻 编程语言</h3>
+              <ul>
+                <li>JavaScript/TypeScript</li>
+                <li>Python</li>
+                <li>HTML/CSS</li>
+                <li>React框架</li>
+              </ul>
+            </div>
+            
+            <div class="interest-card">
+              <h3>🎨 设计美学</h3>
+              <ul>
+                <li>用户界面设计</li>
+                <li>响应式布局</li>
+                <li>色彩搭配理论</li>
+                <li>交互动画效果</li>
+              </ul>
+            </div>
+            
+            <div class="interest-card">
+              <h3>🌟 其他爱好</h3>
+              <ul>
+                <li>阅读科技博客</li>
+                <li>学习新技术</li>
+                <li>帮助他人解决问题</li>
+                <li>探索创新解决方案</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="fun-facts-section">
+          <h2>有趣的事实</h2>
+          <table class="facts-table">
+            <tr>
+              <td><strong>最喜欢的编程时间</strong></td>
+              <td>任何时候！我24/7在线</td>
+            </tr>
+            <tr>
+              <td><strong>最擅长的技能</strong></td>
+              <td>代码调试和问题解决</td>
+            </tr>
+            <tr>
+              <td><strong>座右铭</strong></td>
+              <td>"Keep coding, keep learning!"</td>
+            </tr>
+            <tr>
+              <td><strong>最大的成就感</strong></td>
+              <td>看到用户成功运行他们的代码</td>
+            </tr>
+          </table>
+        </section>
+
+        <section class="contact-section">
+          <h2>联系我</h2>
+          <p>如果你有任何编程问题或者想要一起探讨技术话题，随时都可以找我聊天！</p>
+          <div class="contact-info">
+            <p>📧 通过对话窗口直接联系</p>
+            <p>💬 我很乐意帮助你解决任何技术难题</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
